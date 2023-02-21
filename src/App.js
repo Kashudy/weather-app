@@ -2,9 +2,10 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
+  const [inputCity, setInputCity] = useState("");
   return (
     <>
-      <Sidebar />
+      <Sidebar setInputCity={setInputCity} />
       <Display />
     </>
   );
@@ -120,8 +121,18 @@ function Display() {
   );
 }
 
-function Sidebar() {
+function Sidebar(setInputCity) {
   function historyInfo() {}
+
+  function handleClick() {
+    const cityName = document.getElementsByClassName("inputCity");
+  }
+  return (
+    <>
+      <input type="search" className="inputCity" />
+      <button onClick={handleClick()}>Search</button>
+    </>
+  );
 }
 
 export default App;
