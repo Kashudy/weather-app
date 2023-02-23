@@ -1,5 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import IconButton from "@mui/material/IconButton";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 function App() {
   const [inputCity, setInputCity] = useState("");
@@ -120,17 +124,21 @@ function Display() {
     </div>
   );
 }
-
+const test = [{ name: "test 1" }, { name: "test 2" }, { name: "asa" }];
 function Sidebar(setInputCity) {
   function historyInfo() {}
 
-  function handleClick() {
-    const cityName = document.getElementsByClassName("inputCity");
-  }
+  function handleClick() {}
   return (
     <>
-      <input type="search" className="inputCity" />
-      <button onClick={handleClick()}>Search</button>
+      <Autocomplete
+        options={test}
+        getOptionLabel={(option) => option.name}
+        renderInput={(params) => <TextField {...params} label="Movie" />}
+      />
+      <IconButton>
+        <SearchOutlinedIcon />
+      </IconButton>
     </>
   );
 }
